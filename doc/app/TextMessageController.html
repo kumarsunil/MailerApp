@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class TextMessageController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/text_message_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-authorize">#authorize</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-init">#init</a>
+    
+    <li><a href="#method-i-save">#save</a>
+    
+    <li><a href="#method-i-send_email">#send_email</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./DashboardController.html">DashboardController</a>
+  
+    <li><a href="./DashboardHelper.html">DashboardHelper</a>
+  
+    <li><a href="./LoginController.html">LoginController</a>
+  
+    <li><a href="./LoginHelper.html">LoginHelper</a>
+  
+    <li><a href="./Notifier.html">Notifier</a>
+  
+    <li><a href="./TextMessageController.html">TextMessageController</a>
+  
+    <li><a href="./TextMessageHelper.html">TextMessageHelper</a>
+  
+    <li><a href="./TextMessageTemplate.html">TextMessageTemplate</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserObserver.html">UserObserver</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class TextMessageController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-authorize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authorize</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authorize-source">
+            <pre><span class="ruby-comment"># File app/controllers/text_message_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">authorize</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>])
+         <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Please log in&quot;</span>
+        <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">user_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">'guest'</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Unauthorized access'</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- authorize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- authorize-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/text_message_controller.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@message</span> = <span class="ruby-constant">TextMessageTemplate</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-init" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">init</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="init-source">
+            <pre><span class="ruby-comment"># File app/controllers/text_message_controller.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">init</span>
+  <span class="ruby-ivar">@message</span> = <span class="ruby-constant">TextMessageTemplate</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:first</span>)
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>, <span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&quot;MONTH(birthdate)=? AND DAY(birthdate) = ?&quot;</span>, <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">month</span>, <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">day</span>]); 
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- init-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- init-method -->
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File app/controllers/text_message_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">TextMessageTemplate</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:first</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@message</span> = <span class="ruby-constant">TextMessageTemplate</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">text_message_subject</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:text_message_template</span>][<span class="ruby-value">:subject</span>]
+    <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">text_message_body</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:text_message_template</span>][<span class="ruby-value">:body</span>]
+    <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">sent_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">update_attributes</span>(
+      <span class="ruby-value">:text_message_subject</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:text_message_template</span>][<span class="ruby-value">:subject</span>],
+      <span class="ruby-value">:text_message_body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:text_message_template</span>][<span class="ruby-value">:body</span>],
+      <span class="ruby-value">:sent_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+      )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Template Updated&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">'/text_message/index'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+      <div id="method-i-send_email" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_email</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send_email-source">
+            <pre><span class="ruby-comment"># File app/controllers/text_message_controller.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_email</span> 
+       <span class="ruby-comment">#@user = User.find(:all, :conditions =&gt; [&quot;birthdate = ?&quot;, &quot;1995-07-23&quot; ])</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">TextMessageTemplate</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:first</span>)
+
+  <span class="ruby-identifier">htmltext</span> = <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-identifier">filter</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>]
+  <span class="ruby-keyword">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">filter</span>.<span class="ruby-identifier">nil?</span>)
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">f</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">filter</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;filter #{f} &quot;</span>
+
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">usr</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">usr</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;filter #{f}&quot;</span>
+        <span class="ruby-identifier">body</span> = <span class="ruby-node">&quot;Happy Birthday #{usr.first_name}!!! #{t.text_message_body}&quot;</span>
+        <span class="ruby-keyword">begin</span>
+         <span class="ruby-ivar">@test</span> = <span class="ruby-constant">Notifier</span>.<span class="ruby-identifier">deliver_message</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">text_message_subject</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">usr</span>)
+         <span class="ruby-identifier">htmltext</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">usr</span>.<span class="ruby-identifier">first_name</span>
+         <span class="ruby-identifier">htmltext</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;- pass&lt;br/&gt;&quot;</span>
+        <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Mail sent Successfully&quot;</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-comment">#raise e if raise_delivery_errors</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;delivery error&quot;</span>
+          <span class="ruby-identifier">htmltext</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">usr</span>.<span class="ruby-identifier">first_name</span>
+          <span class="ruby-identifier">htmltext</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;- &lt;span style='color:red;font-weight: bold'&gt; fail &lt;/span&gt;&lt;br/&gt;&quot;</span>
+          <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:info</span>] = <span class="ruby-identifier">htmltext</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- send_email-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- send_email-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

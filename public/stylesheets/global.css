@@ -1,0 +1,54 @@
+body#admin_wrapper {
+	background-color: #6D7B8D;
+	color: white;
+	height: 100%;
+}
+
+
+body#guest_wrapper {
+	background-color: #FFDDCA;
+	color: #665544;	
+}
+
+body, body#content {
+	font-family: Arial, Verdana, sans-serif;
+	text-align: center;
+	font-size : 16px;
+	color: #665544;	
+}
+
+
+#template_partial {
+	border: 2px solid;
+	width: 45%;
+	position: absolute;
+}
+
+#userlist_partial {
+	float: right;
+	width: 50%;
+	border: 2px solid;
+	padding-bottom: 20px;
+	margin-top: 50px;
+}
+
+#errormessage, #alert { 
+    color: red;
+    font-style: bold;
+}
+
+#notice {
+   color: #006400;
+   font-style: bold;
+}
+
+#logout {
+	text-align: right;
+}
+
+div#status {
+	position: relative;
+	top: 10px;
+	left: 400px;
+}
+
